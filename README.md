@@ -196,11 +196,9 @@ Change ownership of the .ssh directory:
 
 Create the Jenkins workspace directory:
 
-	```bash
 	sudo mkdir -p /var/jenkins
 
 	sudo chown ubuntu:ubuntu /var/jenkins
-	```
 
 5. Test SSH Connection from Master to Slave
 
@@ -297,9 +295,8 @@ SSH Connectivity:
 Ensure the public key from the master is correctly copied to /home/ubuntu/.ssh/authorized_keys on the slave.
 Verify correct permissions on the slave:
 
-```bash
 sudo chown -R ubuntu:ubuntu /home/ubuntu/.ssh
-```
+
 
 If you encounter an SSH connection issue, it is likely due to the public key from the master instance not being correctly copied or pasted into the slave instance. Ensure that the public key located at /home/ubuntu/.ssh/id_rsa.pub on the master instance has been accurately copied and added to the /home/ubuntu/.ssh/authorized_keys file on the slave instance.
 
@@ -311,11 +308,9 @@ ssh-rsa AAAAB3NzaC1yc2E...W+NbamljFnua6MB07/Hyz4Ep5n6naGvsu4B+m2tRZ
 
 Ensure the /var/jenkins directory exists on the slave:
 
-```bash
 sudo mkdir -p /var/jenkins
 
 sudo chown ubuntu:ubuntu /var/jenkins
-```
 
 - Firewall/Security Groups:
 
