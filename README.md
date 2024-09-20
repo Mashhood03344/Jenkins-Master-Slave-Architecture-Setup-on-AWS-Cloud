@@ -99,28 +99,27 @@ Use Instance Connect or SSH to access both instances.
 
 Update Package List
 
-	```bash
 	sudo apt update
 
 	Install OpenJDK 17
-	```
+	
 Install Java
 
-	```bash
+	
 	sudo apt install openjdk-17-jdk -y
-	```
+	
 
 Verify Java installation:
 
-	```bash
+	
 	java --version
-	```
+	
 
 Install Jenkins
 
 Add the Jenkins repository and install:
 
-	```bash
+	
 	wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
 	
 	sudo sh -c 'echo deb http://pkg.jenkins.io/debian binary/ > /etc/apt/sources.list.d/jenkins.list'
@@ -128,28 +127,28 @@ Add the Jenkins repository and install:
 	sudo apt update
 	
 	sudo apt install jenkins -y
-	```
+	
 
 
 Start Jenkins and Enable It to Start on Boot
 
-	```bash
+	
 	sudo systemctl enable jenkins
 
 	sudo systemctl start jenkins
-	```
+	
 
 Check Jenkins status:
 
-	```bash
+	
 	sudo systemctl status jenkins
 	Retrieve Jenkins Initial Admin Password
-	```
+	
 The Initial Password for the jenkins
 
-	```bash
+	
 	sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-	```
+	
 
 3. Configure SSH Key-Based Authentication
 
@@ -157,21 +156,21 @@ The Initial Password for the jenkins
 
 Generate an RSA key pair:
 
-	```bash
+	
 	ssh-keygen -t rsa -b 2048 -m PEM
-	```
+	
 
 Display the private key:
 
-	```bash
+	
 	cat ~/.ssh/id_rsa
-	```
+	
 	
 Display the public key:
 
-	```bash
+	
 	cat ~/.ssh/id_rsa.pub
-	```
+	
 
 Copy the public key it would be like this ssh-rsa AAAAB3NzaC1yc2E...W+NbamljFnua6MB07/Hyz4Ep5n6naGvsu4B+m2tRZ.
 
@@ -179,19 +178,19 @@ Copy the public key it would be like this ssh-rsa AAAAB3NzaC1yc2E...W+NbamljFnua
 
 Create the necessary directories and add the master’s public key:
 
-	```bash
+	
 	sudo mkdir -p /home/ubuntu/.ssh
 
 	sudo nano /home/ubuntu/.ssh/authorized_keys
-	```
+	
 
 Paste the copied public key into the authorized_keys file and save.
 
 Change ownership of the .ssh directory:
 
-	```bash
+	
 	sudo chown -R ubuntu:ubuntu /home/ubuntu/.ssh
-	```
+	
 
 4. Create Jenkins Workspace on Slave
 
@@ -207,9 +206,9 @@ Create the Jenkins workspace directory:
 
 On the master instance, test the SSH connection to the slave:
 
-	```bash
+	
 	ssh ubuntu@<slave-instance-ip>
-	```
+	
 
 If the connection works, proceed to configure the slave in Jenkins.
 
