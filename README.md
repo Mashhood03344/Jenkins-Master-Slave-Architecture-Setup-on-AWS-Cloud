@@ -142,9 +142,9 @@ Check Jenkins status:
 
 	
 	sudo systemctl status jenkins
-	Retrieve Jenkins Initial Admin Password
 	
-The Initial Password for the jenkins
+	
+Retrieve Jenkins Initial Admin Password
 
 	
 	sudo cat /var/lib/jenkins/secrets/initialAdminPassword
