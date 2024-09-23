@@ -10,7 +10,7 @@
 4. [How Jenkins Master and Slave Architecture works?](#how-jenkins-master-and-slave-architecture-works-?)
 5. [Jenkins master-slave architecture Setup](#jenkins-master-slave-architecture-setup)
 	- [Prerequisites](#prerequisites)
-	- [Steps](#step)
+	- [Steps](#Steps)
 	- [Trouble Shooting](#trouble-shooting)
 6. [Creating a Pipeline and Running on The Slave Machine](#Creating-a-Pipeline-and-Running-on-The-Slave-Machine)
 7. [References](#references)
