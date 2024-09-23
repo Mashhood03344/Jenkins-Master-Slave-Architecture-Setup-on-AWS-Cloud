@@ -2,17 +2,17 @@
 
 ## Table of Content
 
-1. [Jenkins Master-Slave Architecture Setup](#jenkins-master-slave-architecture-setup)
-2. [Why we need a Distributed Architecture](#why-we-need-a-distributed-architecture)
-3. [Jenkins Distributed Architecture](#jenkins-disstributed-architecture)
+1. [Why we need a Distributed Architecture](#why-we-need-a-distributed-architecture)
+2. [Jenkins Distributed Architecture](#jenkins-disstributed-architecture)
  	- [Jenkins Master](#jenkins-msater)
  	- [Jenkins Slave](#jenkins-slave)
-4. [Jenkins Master Slave Architecture Diagram](#jenkins-master-slave-architecture-diagram)
-5. [How Jenkins Master and Slave Architecture works?](#how-jenkins-master-and-slave-architecture-works-?)
-6. [Jenkins master-slave architecture Setup](#jenkins-master-slave-architecture-setup)
+3. [Jenkins Master Slave Architecture Diagram](#jenkins-master-slave-architecture-diagram)
+4. [How Jenkins Master and Slave Architecture works?](#how-jenkins-master-and-slave-architecture-works-?)
+5. [Jenkins master-slave architecture Setup](#jenkins-master-slave-architecture-setup)
 	- [Prerequisites](#prerequisites)
 	- [Steps](#step)
 	- [Trouble Shooting](#trouble-shooting)
+6. [Creating a Pipeline and Running on The Slave Machine](#Creating-a-Pipeline-and-Running-on-The-Slave-Machine)
 7. [References](#references)
 
 
@@ -212,7 +212,7 @@ If the connection works, proceed to configure the slave in Jenkins.
 
 6. Configure Jenkins Master to Use Slave
 
-To createTo configure the node (or agent) settings on the master Jenkins server, follow these steps on the master server:
+To configure the node (or agent) settings on the master Jenkins server, follow these steps on the master server:
 
 - Access Jenkins Dashboard
 Open your Jenkins master server in a web browser: http://<master_ip>:8080.
@@ -316,6 +316,29 @@ sudo chown ubuntu:ubuntu /var/jenkins
 
 Ensure the security group allows traffic on SSH (port 22), HTTP (port 80), and Jenkins (port 8080).
 
+## Creating a Pipeline and Running on The Slave Machine
+
+Click New Item in the top left corner on the dashboard in the master instance.
+Enter the name of your project in the Enter an item name field, and select the Pipeline project, and click OK button.
+Enter Description (optional).
+Go to the Pipeline section, make sure the Definition field has the Pipeline script option selected.
+Copy and paste the following declarative Pipeline script into a script field.
+
+```bash
+node('test'){
+	stage('stage1') {
+		sh '''echo  stage1 steps'''
+	}
+	stage('stage2') {
+		sh '''echo stage2 steps'''
+	}
+	stage('stage3') {
+		sh '''echo stage3 steps'''
+	}
+}
+```
+
+and create the pipeline
 
 ## References
 
